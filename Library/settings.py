@@ -28,9 +28,9 @@ SECRET_KEY = 'b__@-1ft-o1vld$h&^+gr(keelg%$jls&n8l!y6jkui0)^pn!7'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mighty-beyond-10110.herokuapp.com']
 
 
 # Application definition
