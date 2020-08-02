@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/list.css' %}">
+    {% load bootstrap3 %}
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <title>Список книг</title>
+</head>
+<body class="container">
+	<h1>Список книг:</h1>
+	<table class="table table-bordered">
+        <tbody>
+            {% for book in object_list %}
+                <tr>
+                    <td>
+                        <h3>Название: {{ book.name }}</h3>
+                        <h4>Издательство: {{ book.pub_house.annotate.get }}</h4>
+                        <h4>Автор: {{ book.author.annotate.get }}</h4>
+                        <img src="{{ MEDIA_URL }}{{ book.get_image.url }}" height="200px"/>
+                        <div>
+                        <h4>Должники:</h4>
+                            {% for debtor in book.debtor.annotate %}
+                                <p>- {{ debtor }}</p>
+                            {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'index' %}" type="button" class="btn btn-primary btn-lg">Назад</a>
+</body>
+    <script src="{% bootstrap_jquery_url %}"></script>
+	<script src="{% static 'js/jquery.js' %}"></script>
+</html>

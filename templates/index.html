@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% load bootstrap3 %}
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <script src="{% bootstrap_jquery_url %}"></script>
+	<script src="{% static 'js/jquery.js' %}"></script>
+    <title>Описание</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    <nav class="nav">
+        <a href="{% url 'list_books' %}" type="button" class="btn btn-primary btn-lg">Список книг</a>
+        <a href="{% url 'list_author' %}" type="button" class="btn btn-primary btn-lg">Список авторов</a>
+        <a href="{% url 'list_pub_house' %}" type="button" class="btn btn-primary btn-lg">Список издательств</a>
+        <a href="{% url 'list_debtor' %}" type="button" class="btn btn-primary btn-lg">Список должников</a>
+    </nav>
+    <nav class="nav">
+        <a href="{% url 'add_book' %}" type="button" class="btn btn-primary btn-lg">Добавить книгу</a>
+        <a href="{% url 'add_author' %}" type="button" class="btn btn-primary btn-lg">Добавить автора</a>
+        <a href="{% url 'add_pub_house' %}" type="button" class="btn btn-primary btn-lg">Добавить издательство</a>
+        <a href="{% url 'add_debtor' %}" type="button" class="btn btn-primary btn-lg">Добавить должника</a>
+    </nav>
+</body>
+</html>

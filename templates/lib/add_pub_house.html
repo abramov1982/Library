@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/add.css' %}">
+    {% load bootstrap3 %}
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+    <title>Добавить издательство</title>
+</head>
+<body class="container">
+    <h1>Добавление издательства</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+        {% for field in form %}
+        <div class="form-group">
+            {{field.label_tag}}
+            <div>{{field}}</div>
+        {% endfor %}
+        </div>
+        <input type="submit" value="Сохранить">
+        </div>
+    </form>
+</body>
+    <script src="{% bootstrap_jquery_url %}"></script>
+	<script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/add.js' %}"></script>
+</html>
