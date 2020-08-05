@@ -23,7 +23,7 @@
                         <img src="{{ MEDIA_URL }}{{ book.get_image.url }}" height="200px"/>
                         <div>
                         <h4>Должники:</h4>
-                            {% for debtor in book.debtor.annotate %}
+                            {% for debtor in book.book.annotate %}
                                 <p>- {{ debtor }}</p>
                             {% endfor %}
                         </div>

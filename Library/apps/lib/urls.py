@@ -13,6 +13,7 @@ urlpatterns = [
     path('list_book', views.BookRead.as_view(), name='list_books'),
     path('list_debtor', views.DebtorRead.as_view(), name='list_debtor'),
     path('list_pub_house', views.PublishingHouseRead.as_view(), name='list_pub_house'),
+    path('debtor/<int:pk>', views.DebtorUpdate.as_view(), name='update_debtor')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

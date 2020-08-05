@@ -49,6 +49,13 @@ class DebtorRead(ListView):
     template_name = 'lib/list_debtors.html'
 
 
+class DebtorUpdate(UpdateView):
+    form_class = DebtorForm
+    model = Debtor
+    template_name = 'lib/add_debtor.html'
+    success_url = reverse_lazy('list_debtor')
+
+
 class PublishingHouseCreate(CreateView):
     model = PublishingHouse
     form_class = PublishingHouseForm

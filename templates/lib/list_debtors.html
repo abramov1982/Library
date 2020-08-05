@@ -17,7 +17,7 @@
             {% for debtor in object_list %}
                 <tr>
                     <td>
-                        <h3> Имя должника:{{ debtor.full_name }}</h3>
+                        <h3> Имя должника:<a href="{{ debtor.get_absolute_url }}">{{ debtor.full_name }}</a></h3>
                         <h4>Выдано:</h4>
                             {% for book in debtor.book.annotate %}
                                 <p>- {{ book }}</p>

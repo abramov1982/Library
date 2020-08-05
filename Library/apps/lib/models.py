@@ -26,6 +26,9 @@ class Debtor(models.Model):
         verbose_name = 'Должник'
         verbose_name_plural = 'Должники'
 
+    def get_absolute_url(self):
+        return 'debtor/%i' % self.pk
+
 
 class PublishingHouse(models.Model):
     pub_name = models.CharField(max_length=20, blank=False, verbose_name='Название издательства')
